@@ -54,7 +54,7 @@ export default function IntroScreen() {
         className="z-10 flex flex-col items-center text-center max-w-2xl px-6"
       >
         <div className="text-[#84e0e5] font-mono tracking-[0.3em] text-xs font-bold mb-8 uppercase">
-          13 June 2006 • 13 June 2026
+          4 July 2006 • 4 July 2026
         </div>
         
         <h1 className="text-4xl md:text-5xl lg:text-6xl text-white font-sans font-light tracking-wide mb-2">
