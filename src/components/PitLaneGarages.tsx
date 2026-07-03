@@ -21,13 +21,6 @@ export default function PitLaneGarages() {
     }
   };
 
-  const playAudio = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    // Assuming the user places fav-song.mp3 in the public folder
-    const audio = new Audio("/fav-song.mp3");
-    audio.play();
-  };
-
   return (
     <div className="min-h-screen bg-black flex flex-col items-center py-20 px-4 relative overflow-hidden">
       {/* Pit Lane Background Elements */}
@@ -63,16 +56,6 @@ export default function PitLaneGarages() {
                    <h3 className="text-2xl font-bold font-sans text-white uppercase">
                      {garage.title}
                    </h3>
-                   {garage.audio && (
-                     <div className="mt-6 flex justify-center">
-                       <button 
-                         onClick={playAudio}
-                         className="bg-[var(--color-f1-red)] p-4 rounded-full hover:scale-110 transition-transform shadow-[0_0_20px_rgba(225,6,0,0.8)]"
-                       >
-                         <FaPlay className="text-white text-xl" />
-                       </button>
-                     </div>
-                   )}
                  </div>
               </div>
 
