@@ -6,10 +6,9 @@ import { useStore } from "@/store/useStore";
 import { FaLock, FaLockOpen, FaPlay } from "react-icons/fa";
 
 const GARAGES = [
-  { id: 1, type: "Photos", title: "Rookie Season", desc: "First pictures together." },
-  { id: 2, type: "Voice Note", title: "Team Radio", desc: "That funny voice note from 2AM." },
-  { id: 3, type: "Video", title: "Podium Finish", desc: "Celebratory moments." },
-  { id: 4, type: "Secret", title: "Hidden Upgrades", desc: "Top secret files." },
+  { id: 1, type: "Memory 01", title: "Rookie Season", image: "/memory-riya-1.png" },
+  { id: 2, type: "Memory 02", title: "Team Mates", image: "/memory-riya-2.png" },
+  { id: 3, type: "Memory 03", title: "Podium Finish", image: "/memory-riya-3.jpg", audio: true },
 ];
 
 export default function PitLaneGarages() {
@@ -20,6 +19,13 @@ export default function PitLaneGarages() {
     if (!openGarages.includes(id)) {
       setOpenGarages((prev) => [...prev, id]);
     }
+  };
+
+  const playAudio = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    // Assuming the user places fav-song.mp3 in the public folder
+    const audio = new Audio("/fav-song.mp3");
+    audio.play();
   };
 
   return (
@@ -40,25 +46,33 @@ export default function PitLaneGarages() {
         </h1>
       </div>
 
-      <div className="z-10 w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="z-10 w-full max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-6">
         {GARAGES.map((garage) => {
           const isOpen = openGarages.includes(garage.id);
           return (
-            <div key={garage.id} className="relative h-96 bg-gray-900 border-2 border-gray-700 rounded-lg overflow-hidden group">
+            <div key={garage.id} className="relative h-[500px] bg-gray-900 border-2 border-gray-700 rounded-lg overflow-hidden group">
               
               {/* The contents of the garage (Memory) */}
-              <div className="absolute inset-0 bg-white flex flex-col items-center justify-center p-6 text-center shadow-[inset_0_0_50px_rgba(0,0,0,0.5)]">
-                 <div className="text-[var(--color-f1-red)] text-sm font-mono font-bold uppercase mb-2">
-                   {garage.type}
-                 </div>
-                 <h3 className="text-2xl font-bold font-sans text-black uppercase mb-2">
-                   {garage.title}
-                 </h3>
-                 <p className="text-gray-600 font-sans">
-                   {garage.desc}
-                 </p>
-                 <div className="mt-6 text-black opacity-20 font-mono text-[10px]">
-                   [ASSET_PLACEHOLDER]
+              <div className="absolute inset-0 bg-black flex flex-col items-center justify-center text-center">
+                 <img src={garage.image} alt={garage.title} className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
+                 
+                 <div className="z-10 bg-black/60 p-4 rounded-lg backdrop-blur-md translate-y-32 group-hover:translate-y-0 transition-transform duration-500">
+                   <div className="text-[var(--color-f1-red)] text-sm font-mono font-bold uppercase mb-2">
+                     {garage.type}
+                   </div>
+                   <h3 className="text-2xl font-bold font-sans text-white uppercase">
+                     {garage.title}
+                   </h3>
+                   {garage.audio && (
+                     <div className="mt-6 flex justify-center">
+                       <button 
+                         onClick={playAudio}
+                         className="bg-[var(--color-f1-red)] p-4 rounded-full hover:scale-110 transition-transform shadow-[0_0_20px_rgba(225,6,0,0.8)]"
+                       >
+                         <FaPlay className="text-white text-xl" />
+                       </button>
+                     </div>
+                   )}
                  </div>
               </div>
 
@@ -72,7 +86,7 @@ export default function PitLaneGarages() {
               >
                 <div className="w-full px-8 opacity-30 flex flex-col gap-4 pointer-events-none">
                   {/* Corrugated door lines */}
-                  {Array.from({ length: 8 }).map((_, i) => (
+                  {Array.from({ length: 12 }).map((_, i) => (
                     <div key={i} className="w-full h-1 bg-black rounded-full" />
                   ))}
                 </div>
@@ -102,7 +116,7 @@ export default function PitLaneGarages() {
         })}
       </div>
 
-      {/* Button to proceed to Qualifying */}
+      {/* Button to proceed to next phase */}
       <AnimatePresence>
         {openGarages.length > 0 && (
           <motion.div
