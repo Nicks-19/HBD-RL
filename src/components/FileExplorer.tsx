@@ -10,7 +10,7 @@ type FileNode = { id: string; name: string; type: "folder" | "file" | "exe" | "i
 const FILESYSTEM: Record<string, FileNode[]> = {
   root: [
     { id: "f3", name: "Memories", type: "folder" },
-    { id: "e1", name: "System_Override.exe", type: "exe" },
+    { id: "e1", name: "NEXT SURPRISE.exe", type: "exe" },
   ],
   f3: [
     { id: "m1", name: "First_Outing.jpg", type: "image", url: "/memories/1.jpg" },
