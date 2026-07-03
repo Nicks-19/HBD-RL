@@ -15,8 +15,8 @@ interface AppState {
 export const useStore = create<AppState>()(
   persist(
     (set) => ({
-      currentPhase: 1,
-      unlockedPhases: [1],
+      currentPhase: 0,
+      unlockedPhases: [0],
       isMuted: false,
       hasStarted: false,
       setCurrentPhase: (phase) => set({ currentPhase: phase }),

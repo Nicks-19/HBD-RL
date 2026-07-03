@@ -1,6 +1,7 @@
 "use client";
 
 import { useStore } from "@/store/useStore";
+import IntroScreen from "@/components/IntroScreen";
 import PaddockAccess from "@/components/PaddockAccess";
 import Countdown from "@/components/Countdown";
 import PitLaneGarages from "@/components/PitLaneGarages";
@@ -19,6 +20,18 @@ export default function Home() {
   return (
     <main className="w-full min-h-screen bg-black">
       <AnimatePresence mode="wait">
+        {currentPhase === 0 && (
+          <motion.div
+            key="phase0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="w-full h-full"
+          >
+            <IntroScreen />
+          </motion.div>
+        )}
+
         {currentPhase === 1 && (
           <motion.div
             key="phase1"
