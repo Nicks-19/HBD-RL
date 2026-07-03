@@ -166,8 +166,7 @@ export default function Ceremony() {
               className="flex-1 flex flex-col"
             >
               {/* Signature Header */}
-              <div className="flex items-center gap-3 mb-10">
-                <span className="text-4xl italic text-[#5ce1e6]" style={{ fontFamily: "cursive" }}>J</span>
+              <div className="flex items-center gap-3 mb-10 text-center justify-center">
                 <span className="text-[#cda9ff] text-xl font-sans tracking-wide">
                   {WISDOM_SLIDES[currentSlide].signature}
                 </span>
