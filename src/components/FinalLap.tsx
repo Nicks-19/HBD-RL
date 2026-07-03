@@ -4,11 +4,10 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useStore } from "@/store/useStore";
 import confetti from "canvas-confetti";
-import { FaTrophy } from "react-icons/fa";
 
 export default function FinalLap() {
   const setCurrentPhase = useStore((state) => state.setCurrentPhase);
-  const [stage, setStage] = useState<"racing" | "finish" | "podium">("racing");
+  const [stage, setStage] = useState<"racing" | "finish">("racing");
 
   useEffect(() => {
     // Stage 1: Racing -> Cross Finish Line
@@ -44,16 +43,12 @@ export default function FinalLap() {
 
     }, 3000);
 
-    // Stage 2: Finish Line -> Podium
-    const timer2 = setTimeout(() => setStage("podium"), 7000);
-
-    // Stage 3: Podium -> Next Phase
-    const timer3 = setTimeout(() => setCurrentPhase(14), 14000);
+    // Stage 2: Finish Line -> Next Phase (skip podium)
+    const timer2 = setTimeout(() => setCurrentPhase(14), 8000);
 
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
-      clearTimeout(timer3);
     };
   }, [setCurrentPhase]);
 
@@ -99,28 +94,6 @@ export default function FinalLap() {
             <h1 className="text-white text-4xl md:text-7xl font-sans font-bold uppercase tracking-widest z-20 drop-shadow-[0_0_20px_rgba(255,255,255,0.8)]">
               CHAMPION OF THE WORLD!
             </h1>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <AnimatePresence>
-        {stage === "podium" && (
-          <motion.div
-            key="podium"
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="absolute inset-0 flex flex-col items-center justify-end pb-32 z-20 bg-gradient-to-t from-[var(--color-f1-red)]/20 to-black"
-          >
-            <FaTrophy className="text-[#ffd700] text-9xl mb-8 drop-shadow-[0_0_50px_rgba(255,215,0,0.8)]" />
-            <h1 className="text-white text-5xl font-sans font-bold uppercase tracking-[0.2em] mb-4">
-              P1
-            </h1>
-            <p className="text-gray-300 font-mono tracking-widest uppercase">
-              Trophy Presentation
-            </p>
-
-            {/* Spotlight effect */}
-            <div className="absolute top-0 w-full h-[200vh] bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.2)_0%,_transparent_50%)] pointer-events-none" />
           </motion.div>
         )}
       </AnimatePresence>
