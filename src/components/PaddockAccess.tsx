@@ -27,7 +27,7 @@ export default function PaddockAccess() {
       playEngineRev();
       // Play opening animation delay before moving to next phase
       setTimeout(() => {
-        setCurrentPhase(2);
+        setCurrentPhase(1);
       }, 2500);
     } else {
       setPassword("");

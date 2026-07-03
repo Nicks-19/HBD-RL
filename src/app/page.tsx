@@ -28,7 +28,7 @@ export default function Home() {
             exit={{ opacity: 0 }}
             className="w-full h-full"
           >
-            <IntroScreen />
+            <PaddockAccess />
           </motion.div>
         )}
 
@@ -40,7 +40,7 @@ export default function Home() {
             exit={{ opacity: 0 }}
             className="w-full h-full"
           >
-            <PaddockAccess />
+            <IntroScreen />
           </motion.div>
         )}
         

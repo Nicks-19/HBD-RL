@@ -70,7 +70,7 @@ export default function IntroScreen() {
         </p>
 
         <motion.button
-          onClick={() => setCurrentPhase(1)}
+          onClick={() => setCurrentPhase(2)}
           className="flex flex-col items-center gap-2 group cursor-pointer border-none bg-transparent"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
