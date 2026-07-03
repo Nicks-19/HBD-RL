@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
 
 interface AppState {
   currentPhase: number;
@@ -12,25 +11,18 @@ interface AppState {
   startExperience: () => void;
 }
 
-export const useStore = create<AppState>()(
-  persist(
-    (set) => ({
-      currentPhase: 0,
-      unlockedPhases: [0],
-      isMuted: false,
-      hasStarted: false,
-      setCurrentPhase: (phase) => set({ currentPhase: phase }),
-      unlockPhase: (phase) =>
-        set((state) => ({
-          unlockedPhases: state.unlockedPhases.includes(phase)
-            ? state.unlockedPhases
-            : [...state.unlockedPhases, phase],
-        })),
-      toggleMute: () => set((state) => ({ isMuted: !state.isMuted })),
-      startExperience: () => set({ hasStarted: true }),
-    }),
-    {
-      name: 'f1-birthday-storage',
-    }
-  )
-);
+export const useStore = create<AppState>()((set) => ({
+  currentPhase: 0,
+  unlockedPhases: [0],
+  isMuted: false,
+  hasStarted: false,
+  setCurrentPhase: (phase) => set({ currentPhase: phase }),
+  unlockPhase: (phase) =>
+    set((state) => ({
+      unlockedPhases: state.unlockedPhases.includes(phase)
+        ? state.unlockedPhases
+        : [...state.unlockedPhases, phase],
+    })),
+  toggleMute: () => set((state) => ({ isMuted: !state.isMuted })),
+  startExperience: () => set({ hasStarted: true }),
+}));
