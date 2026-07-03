@@ -9,6 +9,7 @@ import FileExplorer from "@/components/FileExplorer";
 import SlidingPuzzle from "@/components/SlidingPuzzle";
 import CameraCake from "@/components/CameraCake";
 import Letters from "@/components/Letters";
+import GrandFinale from "@/components/GrandFinale";
 import Constellation from "@/components/Constellation";
 import FinalLap from "@/components/FinalLap";
 import Ceremony from "@/components/Ceremony";
@@ -156,16 +157,15 @@ export default function Home() {
           </motion.div>
         )}
 
-        {currentPhase > 14 && (
+        {currentPhase === 15 && (
           <motion.div
             key="phase15"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="w-full h-screen flex items-center justify-center"
+            exit={{ opacity: 0 }}
+            className="w-full h-full"
           >
-            <h1 className="text-4xl font-sans font-bold text-white">
-              Bonus Phase (Coming Soon)
-            </h1>
+            <GrandFinale />
           </motion.div>
         )}
       </AnimatePresence>

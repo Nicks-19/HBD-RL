@@ -207,6 +207,25 @@ export default function Ceremony() {
           </button>
         </div>
 
+        {/* Conclude Journey Button */}
+        <AnimatePresence>
+          {currentSlide === WISDOM_SLIDES.length - 1 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              className="mt-12 z-20"
+            >
+              <button 
+                onClick={() => setCurrentPhase(15)}
+                className="px-8 py-3 bg-[#cda9ff] text-black rounded-full font-bold uppercase tracking-widest hover:scale-105 transition-transform shadow-[0_0_20px_rgba(205,169,255,0.6)]"
+              >
+                Conclude Journey
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
       </motion.div>
     </div>
   );
