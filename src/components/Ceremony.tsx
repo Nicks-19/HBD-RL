@@ -52,7 +52,7 @@ export default function Ceremony() {
         className="w-full max-w-3xl flex flex-col items-center z-10"
       >
         <h1 className="text-4xl md:text-5xl text-white font-serif mb-2 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
-          Wishes & Wisdom
+          MERE ANMOL SHABD
         </h1>
         <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#cda9ff] to-transparent mb-12" />
         
