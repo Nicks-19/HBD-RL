@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useStore } from "@/store/useStore";
 import { FaPlay, FaPause, FaVolumeUp } from "react-icons/fa";
@@ -9,6 +9,14 @@ export default function IntroScreen() {
   const setCurrentPhase = useStore((state) => state.setCurrentPhase);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.play()
+        .then(() => setIsPlaying(true))
+        .catch((e) => console.log("Autoplay blocked:", e));
+    }
+  }, []);
 
   const toggleAudio = () => {
     if (audioRef.current) {

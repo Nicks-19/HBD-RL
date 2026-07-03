@@ -183,7 +183,7 @@ export default function Ceremony() {
         </div>
 
         {/* Carousel Controls */}
-        <div className="flex items-center gap-6 mt-10">
+        <div className="flex items-center gap-6 mt-10 z-20 relative">
           <button 
             onClick={prevSlide}
             className="w-10 h-10 rounded-full bg-gray-900 border border-gray-700 flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-800 transition-colors"
@@ -198,15 +198,6 @@ export default function Ceremony() {
                 className={`w-2 h-2 rounded-full transition-colors ${i === currentSlide ? 'bg-[#cda9ff] shadow-[0_0_8px_#cda9ff]' : 'bg-gray-700'}`}
               />
             ))}
-            {/* Hardcoded extra dots just to match the visual of the screenshot if there's only 1 slide */}
-            {WISDOM_SLIDES.length === 1 && (
-              <>
-                <div className="w-2 h-2 rounded-full bg-gray-700" />
-                <div className="w-2 h-2 rounded-full bg-gray-700" />
-                <div className="w-2 h-2 rounded-full bg-gray-700" />
-                <div className="w-2 h-2 rounded-full bg-gray-700" />
-              </>
-            )}
           </div>
 
           <button 
