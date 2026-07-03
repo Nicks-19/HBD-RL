@@ -25,7 +25,104 @@ const WISDOM_SLIDES = [
       </div>
     ),
   },
-  // You can easily add more slides here in the future!
+  {
+    id: 2,
+    signature: "The Gehna",
+    content: (
+      <div className="flex flex-col items-center text-center space-y-2 font-sans">
+        <div className="text-gray-300 text-lg md:text-xl leading-relaxed mb-6">
+          <p>You’re precious</p>
+          <p>Like a gehna,</p>
+          <p>Just ignore</p>
+          <p>Chaar logo</p>
+          <p>Ka kehna,</p>
+        </div>
+        <div className="text-yellow-400 font-bold text-lg md:text-xl">
+          <p>Aur humesha slay</p>
+          <p>karte rehna</p>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 3,
+    signature: "The Heera",
+    content: (
+      <div className="flex flex-col items-center text-center space-y-2 font-sans">
+        <div className="text-gray-300 text-lg md:text-xl leading-relaxed mb-6">
+          <p>Life is too short</p>
+          <p>to be sad,</p>
+          <p>So shine like a heera,</p>
+          <p>Shake your hips</p>
+          <p>like shakira,</p>
+        </div>
+        <div className="text-yellow-400 font-bold text-lg md:text-xl">
+          <p>And dance like</p>
+          <p>Garam tel mein jeera</p>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 4,
+    signature: "The Ten",
+    content: (
+      <div className="flex flex-col items-center text-center space-y-2 font-sans">
+        <div className="text-gray-300 text-lg md:text-xl leading-relaxed mb-6">
+          <p>Listen behen</p>
+          <p>You’re a ten,</p>
+          <p>So don’t let</p>
+          <p>faltu people</p>
+          <p>Take away your chain,</p>
+        </div>
+        <div className="text-yellow-400 font-bold text-lg md:text-xl">
+          <p>And bring aasu in your</p>
+          <p>Mast mast do nain</p>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 5,
+    signature: "The Jaan",
+    content: (
+      <div className="flex flex-col items-center text-center space-y-2 font-sans">
+        <div className="text-gray-300 text-lg md:text-xl leading-relaxed mb-6">
+          <p>Oye meri jaan</p>
+          <p>Tu hai full kamaal,</p>
+          <p>Jo tujhe hurt kare</p>
+          <p>Uska network ho jaaye</p>
+          <p>hamesha behaal,</p>
+          <p>Smile rakh tight</p>
+          <p>Attitude rakh royal,</p>
+        </div>
+        <div className="text-yellow-400 font-bold text-lg md:text-xl">
+          <p>Tu normal nahi</p>
+          <p>Limited edition maal</p>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 6,
+    signature: "The Star",
+    content: (
+      <div className="flex flex-col items-center text-center space-y-2 font-sans">
+        <div className="text-gray-300 text-lg md:text-xl leading-relaxed mb-6">
+          <p>Behen tu star hai</p>
+          <p>Thodi si bizarre hai,</p>
+          <p>Jo tujhe rulaye</p>
+          <p>Woh banda bekaar hai,</p>
+          <p>Aansu mat waste kar</p>
+          <p>Mascara mehenga yaar hai,</p>
+        </div>
+        <div className="text-yellow-400 font-bold text-lg md:text-xl">
+          <p>Teri smile ke saamne</p>
+          <p>Sab kuch bekaar hai</p>
+        </div>
+      </div>
+    ),
+  },
 ];
 
 export default function Ceremony() {
