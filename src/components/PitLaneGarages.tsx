@@ -6,9 +6,9 @@ import { useStore } from "@/store/useStore";
 import { FaLock, FaLockOpen, FaPlay } from "react-icons/fa";
 
 const GARAGES = [
-  { id: 1, type: "Memory 01", title: "Rookie Season", image: "/memory-riya-1.png" },
-  { id: 2, type: "Memory 02", title: "Team Mates", image: "/memory-riya-2.png" },
-  { id: 3, type: "Memory 03", title: "Podium Finish", image: "/memory-riya-3.jpg", audio: true },
+  { id: 1, type: "Memory 01", title: "OUR FIRST PRACTICAL", image: "/memory-riya-1.png" },
+  { id: 2, type: "Memory 02", title: "Linkedin ke liye photo kichate huyee", image: "/memory-riya-2.png" },
+  { id: 3, type: "Memory 03", title: "the best photo ever", image: "/memory-riya-3.jpg" },
 ];
 
 export default function PitLaneGarages() {
@@ -120,13 +120,13 @@ export default function PitLaneGarages() {
       <AnimatePresence>
         {openGarages.length > 0 && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mt-16 z-20"
+            className="fixed top-8 right-8 z-50"
           >
             <button
               onClick={() => setCurrentPhase(7)}
-              className="flex items-center gap-3 bg-[var(--color-f1-red)] text-white px-8 py-4 font-sans font-bold uppercase tracking-widest hover:bg-red-700 transition-colors shadow-[0_0_20px_rgba(225,6,0,0.4)]"
+              className="flex items-center gap-3 bg-[var(--color-f1-red)] text-white px-6 py-3 font-sans font-bold uppercase tracking-widest hover:bg-red-700 transition-colors shadow-[0_0_20px_rgba(225,6,0,0.8)] rounded-full border-2 border-red-500"
             >
               Continue to Database <FaPlay />
             </button>
