@@ -6,15 +6,9 @@ import { useStore } from "@/store/useStore";
 import { FaLock, FaLockOpen, FaPlay } from "react-icons/fa";
 
 const GARAGES = [
-  { id: 1, type: "Memory 01", title: "First Outing", image: "/memories/1.jpg" },
-  { id: 2, type: "Memory 02", title: "First Practical", image: "/memories/2.jpg" },
-  { id: 3, type: "Memory 03", title: "IMG 2892", image: "/memories/3.heic" },
-  { id: 4, type: "Memory 04", title: "First Fest", image: "/memories/4.jpg" },
-  { id: 5, type: "Memory 05", title: "LinkedIn", image: "/memories/5.jpg" },
-  { id: 6, type: "Memory 06", title: "Memory 4", image: "/memories/6.jpg" },
-  { id: 7, type: "Memory 07", title: "Memory 3", image: "/memories/7.jpg" },
-  { id: 8, type: "Memory 08", title: "Memory 2", image: "/memories/8.jpg" },
-  { id: 9, type: "Memory 09", title: "Memory 1", image: "/memories/9.jpg", audio: true },
+  { id: 1, type: "Memory 01", title: "Rookie Season", image: "/memory-riya-1.png" },
+  { id: 2, type: "Memory 02", title: "Team Mates", image: "/memory-riya-2.png" },
+  { id: 3, type: "Memory 03", title: "Podium Finish", image: "/memory-riya-3.jpg", audio: true },
 ];
 
 export default function PitLaneGarages() {

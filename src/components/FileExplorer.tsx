@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useStore } from "@/store/useStore";
-import { FaFolder, FaFileAlt, FaTimes, FaCog } from "react-icons/fa";
+import { FaFolder, FaFileAlt, FaTimes, FaCog, FaImage } from "react-icons/fa";
 
-type FileNode = { id: string; name: string; type: "folder" | "file" | "exe"; content?: string };
+type FileNode = { id: string; name: string; type: "folder" | "file" | "exe" | "image"; content?: string; url?: string };
 
 const FILESYSTEM: Record<string, FileNode[]> = {
   root: [
@@ -13,8 +13,14 @@ const FILESYSTEM: Record<string, FileNode[]> = {
     { id: "e1", name: "System_Override.exe", type: "exe" },
   ],
   f3: [
-    { id: "c4", name: "first_photo.jpg", type: "file", content: "[IMAGE_PLACEHOLDER]" },
-    { id: "c5", name: "voice_note_1.mp3", type: "file", content: "[AUDIO_PLACEHOLDER]" },
+    { id: "m1", name: "First_Outing.jpg", type: "image", url: "/memories/1.jpg" },
+    { id: "m2", name: "First_Practical.jpg", type: "image", url: "/memories/2.jpg" },
+    { id: "m4", name: "First_Fest.jpg", type: "image", url: "/memories/4.jpg" },
+    { id: "m5", name: "LinkedIn.jpg", type: "image", url: "/memories/5.jpg" },
+    { id: "m6", name: "Memory_4.jpg", type: "image", url: "/memories/6.jpg" },
+    { id: "m7", name: "Memory_3.jpg", type: "image", url: "/memories/7.jpg" },
+    { id: "m8", name: "Memory_2.jpg", type: "image", url: "/memories/8.jpg" },
+    { id: "m9", name: "Memory_1.jpg", type: "image", url: "/memories/9.jpg" },
   ]
 };
 
@@ -82,6 +88,7 @@ export default function FileExplorer() {
               <div className="w-16 h-16 bg-gray-800 rounded-lg flex items-center justify-center border border-transparent group-hover:border-[var(--color-f1-red)] transition-colors relative">
                  {node.type === "folder" && <FaFolder className="text-[var(--color-f1-red)] text-3xl" />}
                  {node.type === "file" && <FaFileAlt className="text-gray-300 text-3xl" />}
+                 {node.type === "image" && <FaImage className="text-blue-300 text-3xl" />}
                  {node.type === "exe" && <FaCog className="text-[var(--color-f1-silver)] text-3xl animate-[spin_10s_linear_infinite]" />}
                  {node.type === "exe" && (
                     <div className="absolute -top-1 -right-1 w-3 h-3 bg-[var(--color-f1-red)] rounded-full animate-ping" />
@@ -102,15 +109,22 @@ export default function FileExplorer() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-8 z-50"
               >
-                <div className="w-full max-w-2xl bg-[#1a1a1a] border border-gray-600 rounded-lg shadow-2xl overflow-hidden flex flex-col">
+                <div className="w-full max-w-4xl bg-[#1a1a1a] border border-gray-600 rounded-lg shadow-2xl overflow-hidden flex flex-col">
                    <div className="h-10 bg-gray-800 border-b border-gray-600 flex items-center justify-between px-4">
                      <span className="text-sm font-mono text-gray-300">{openFile.name}</span>
                      <button onClick={() => setOpenFile(null)} className="text-gray-400 hover:text-white">
                         <FaTimes />
                      </button>
                    </div>
-                   <div className="p-8 font-mono text-sm text-green-400 whitespace-pre-wrap leading-relaxed h-[400px] overflow-y-auto">
-                     {openFile.content}
+                   <div className="p-4 flex items-center justify-center min-h-[400px] max-h-[80vh] overflow-y-auto bg-black">
+                     {openFile.type === "image" && openFile.url && (
+                        <img src={openFile.url} alt={openFile.name} className="max-w-full max-h-[70vh] object-contain" />
+                     )}
+                     {openFile.type === "file" && (
+                        <div className="font-mono text-sm text-green-400 whitespace-pre-wrap leading-relaxed">
+                          {openFile.content}
+                        </div>
+                     )}
                    </div>
                 </div>
               </motion.div>
